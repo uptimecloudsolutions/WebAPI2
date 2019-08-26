@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InterfacesEXTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InterfacesEXT.animal_reg.Properties' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Properties">
+          <Key>
+            <PropertyRef Name="property_number" />
+          </Key>
+          <Property Name="property_number" Type="int" Nullable="false" />
+          <Property Name="formatted_address" Type="varchar" MaxLength="255" />
+          <Property Name="house_number" Type="int" />
+          <Property Name="house_number_suffix" Type="varchar" MaxLength="1" />
+          <Property Name="house_number_to" Type="int" />
+          <Property Name="house_number_to_suffix" Type="varchar" MaxLength="1" />
+          <Property Name="locality" Type="varchar" MaxLength="50" />
+          <Property Name="postcode" Type="varchar" MaxLength="4" />
+          <Property Name="property_name" Type="varchar" MaxLength="50" />
+          <Property Name="street" Type="varchar" MaxLength="50" />
+          <Property Name="unit_number" Type="int" />
+          <Property Name="unit_number_suffix" Type="varchar" MaxLength="1" />
+          <Property Name="unit_number_to" Type="int" />
+          <Property Name="unit_number_to_suffix" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <Function Name="spInitialiseProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="animal_reg" />
+        <EntityContainer Name="InterfacesEXTModelStoreContainer">
+          <EntitySet Name="Properties" EntityType="Self.Properties" store:Type="Tables" store:Schema="animal_reg">
+            <DefiningQuery>SELECT 
+    [Properties].[property_number] AS [property_number], 
+    [Properties].[formatted_address] AS [formatted_address], 
+    [Properties].[house_number] AS [house_number], 
+    [Properties].[house_number_suffix] AS [house_number_suffix], 
+    [Properties].[house_number_to] AS [house_number_to], 
+    [Properties].[house_number_to_suffix] AS [house_number_to_suffix], 
+    [Properties].[locality] AS [locality], 
+    [Properties].[postcode] AS [postcode], 
+    [Properties].[property_name] AS [property_name], 
+    [Properties].[street] AS [street], 
+    [Properties].[unit_number] AS [unit_number], 
+    [Properties].[unit_number_suffix] AS [unit_number_suffix], 
+    [Properties].[unit_number_to] AS [unit_number_to], 
+    [Properties].[unit_number_to_suffix] AS [unit_number_to_suffix]
+    FROM [animal_reg].[Properties] AS [Properties]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InterfacesEXTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="property_number" />
+          </Key>
+          <Property Name="property_number" Type="Int32" Nullable="false" />
+          <Property Name="formatted_address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="house_number" Type="Int32" />
+          <Property Name="house_number_suffix" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="house_number_to" Type="Int32" />
+          <Property Name="house_number_to_suffix" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="locality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="postcode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="property_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="unit_number" Type="Int32" />
+          <Property Name="unit_number_suffix" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unit_number_to" Type="Int32" />
+          <Property Name="unit_number_to_suffix" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="InterfacesEXTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Properties" EntityType="Self.Property" />
+          <FunctionImport Name="spInitialiseProperties" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InterfacesEXTModelStoreContainer" CdmEntityContainer="InterfacesEXTEntities">
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="InterfacesEXTModel.Property">
+              <MappingFragment StoreEntitySet="Properties">
+                <ScalarProperty Name="property_number" ColumnName="property_number" />
+                <ScalarProperty Name="formatted_address" ColumnName="formatted_address" />
+                <ScalarProperty Name="house_number" ColumnName="house_number" />
+                <ScalarProperty Name="house_number_suffix" ColumnName="house_number_suffix" />
+                <ScalarProperty Name="house_number_to" ColumnName="house_number_to" />
+                <ScalarProperty Name="house_number_to_suffix" ColumnName="house_number_to_suffix" />
+                <ScalarProperty Name="locality" ColumnName="locality" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="property_name" ColumnName="property_name" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="unit_number" ColumnName="unit_number" />
+                <ScalarProperty Name="unit_number_suffix" ColumnName="unit_number_suffix" />
+                <ScalarProperty Name="unit_number_to" ColumnName="unit_number_to" />
+                <ScalarProperty Name="unit_number_to_suffix" ColumnName="unit_number_to_suffix" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spInitialiseProperties" FunctionName="InterfacesEXTModel.Store.spInitialiseProperties" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
